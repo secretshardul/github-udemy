@@ -1,0 +1,4 @@
+1. Create local repo and commit files
+2. create new repo on github 
+$ git remote add origin https://github.com/username/new_repo
+$ git push -u origin master
