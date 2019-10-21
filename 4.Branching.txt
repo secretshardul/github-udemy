@@ -1,0 +1,58 @@
+52. Branching
+Making all changes on master branch is not good practice. We should 
+make feature branches to isolate changes and then integrate them in 
+master after they're stabilized.
+$ git branch mynewbranch		-create "mynewbranch"
+$ git branch -a		-show all branches and active branch
+$git checkout mynewbranch	-shifts branch
+
+Initially all branch labels point to same commit. A new branch won't 
+actually be starting a branch until commits are added.
+
+$ git branch -m mynewbranch newbranch	-rename as newbranch
+Deleting branch- Current branch can't be deleted. You must switch to 
+different branch for deleting.
+$ git branch -d newbranch
+
+53. Shortcut for branch creation and checkout
+git checkout -b title-change
+
+Merging: to merge title-change branch with master, come back 
+to master branch.
+$ git checkout master
+$git merge title-change
+This is a *fast forward* merge because master branch had no commits 
+distinct from title-change branch. The title-change commits directly get
+placed on master as if we had never branched.
+$ git branch -d title-change        -Deleting branch after merge
+
+54. Disable fast forward merges
+$ git merge add-copyright --no-ff
+This shows the branch structure in "$ git hist"(alias)
+*   54da029 (HEAD -> master) Merge branch 'add-copyright'
+|\
+| * e3de45e (add-copyright) copyright in README
+| * be17e4a copyright in HTML
+|/
+* 10842fe Revert "adding copyright notice in html and READM"
+
+55. Automatic merges: no special command. They happen when branches have
+separate commits.
+$ git merge simple-changes -m "merging changes from simple-
+changes branch"
+*   22f197b (HEAD -> master) merging changes from simple-changes branch
+|\
+| * d3feb71 (simple-changes) added team member to humans.txt* | 73a1a6d added how to contribute in README
+
+56. merge conflicts
+Conflicts happen when different branches try modifying same text.
+(master)$ git merge realwork 
+this gives error.
+mergetool is used to resolve conflict. It generates .orig file containing
+original changes. This can be put to .gitignore.
+$ git mergetool
+Commit the changes
+
+start from 58
+
+

@@ -1,0 +1,28 @@
+Allows labelling of significant commits.
+
+70. Lightweight tags
+$ git tag myTag     -add to current commit. It's visible in $ git log
+$ git tag --list    -display tag list
+$ git show myTag    -show commit pointed by tag
+$ git tag --delete myTag
+
+71. annotated tag (-a)
+$ git tag -a v-1.0
+Opens editor to add annotation. Or use $ git tag -a v-1.0 -m "message"
+Annotation, tagger name and date is also displayed.
+
+72. Comparing tags
+$ git difftool v-1.0 v-1.2
+
+73. Adding tags to specific commit id
+$ git tag -a v-0.9-alpha 63f7ca3 -m "0.9 alpha"
+
+74. Updating tag for different commit id(-f means forced)
+$ git tag -a v-0.9-alpha -f 652c37c -m "updated tag"
+
+75. tags on github
+
+$ git push origin master --tags     -push all tags
+$ git push origin v-0.9-alpha       -push specified tag  
+$ git push origin :v-0.9-alpha      -remove specific tag
+

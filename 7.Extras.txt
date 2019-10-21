@@ -1,0 +1,23 @@
+Reset head to different commit(^ means 1 level)
+$ git reset HEAD^^^     -3 levels
+
+reflog- log of all actions till 60 days
+$ git reflog
+0th index has latest action(stack format)
+af7043e (HEAD -> master) HEAD@{0}: reset: moving to HEAD@{2}
+79565a8 (tag: v-1.2, origin/master, origin/HEAD) HEAD@{1}: reset: moving to 79565a8
+af7043e (HEAD -> master) HEAD@{2}: reset: moving to HEAD
+af7043e (HEAD -> master) HEAD@{3}: reset: moving to HEAD^^^
+
+Going to particular commit from reflog
+$ git reset HEAD@{2}
+
+Reset types
+1. --soft: head moved to previous commit, index remains same
+2. --mixed: index is changed to that of previous commit. But changes 
+remain in working directory. It's the default option.
+3. --hard: working directory is also changed. All data is lost.
+
+Cherry pick- apply commit from one branch to another branch
+(master)$ git cherry-pick my-branch
+

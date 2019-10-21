@@ -1,0 +1,15 @@
+32. Display commit history $ git log
+"--abbrev-commit" for SHA1 short from
+"--oneline --graph --decorate" for 1 liner
+$ git log e415ff9...ba04d8b     -commit range
+--since="3 days ago"    -time based
+-- hipster.txt      -history of particular file
+$ git show e415ff9f996e1fd90d8da80fbe538eadc5c6662b     -commit history
+
+33. Alias for commands
+$ git config --global alias.hist "log --all --graph --decor
+ate --oneline"
+"$ git hist" calls the command
+It gets added to .gitconfig file as
+[alias]
+	hist = log --all --graph --decorate --oneline

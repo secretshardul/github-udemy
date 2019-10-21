@@ -1,0 +1,39 @@
+Stash temporarily stashes away changes in working directory
+so you can work on something else and apply them later.
+Stashing works on both working directory and staging area.
+$ git stash
+$ git stash list    -lists stash
+    stash@{0}: WIP on master: c7c1abf added stashed updates
+    stash@{1}: WIP on master: c7c1abf added stashed updates 
+$ git stash apply   -apply changes
+$ git stash drop    -only removes 0th 
+$ git stash clear   -remove all elements
+$ git stash pop     -combines apply and drop in 1 step
+
+
+Stashed changes don't appear in $ git status
+
+65. Stashing untracked files
+Files not tracked by git are not stashed.
+git stash -u    -stash untracked file
+
+66. multiple stashes-
+stash is stored in stack format where latest element is at 
+0th index.
+$ git stash show stash@{1}      -show specific element
+$ git stash drop stash@{1}      -drop specific
+
+67. stashing on new branch
+$ git stash branch newchanges
+it creates new branch and pops stash on it.
+
+Stashing vs branches
+
+
+
+
+
+
+
+
+`

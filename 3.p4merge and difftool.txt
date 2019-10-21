@@ -1,0 +1,28 @@
+39. P4merge- diff and merge resolution tool
+Install and add to path
+Setup git config
+a) merge tool
+$ git config --global merge.tool p4merge
+$ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+$ git config --global mergetool.prompt false
+b) diff tool
+$ git config --global diff.tool p4merge
+$ git config --global difftool.p4merge.path "C:/Program Fles/Perforce/p4merge.exe"
+$ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+$ git config --global difftool.prompt false
+
+45. difftool shows difference between staging area(left) and
+working directory(right)- "$ git diff" shows in CMD but it's not very helpful
+$git difftool
+46. Compare repository commit(left) and working directory
+$git difftool HEAD
+47. compare repo commit(left) with staging area(right)
+$ git difftool --staged HEAD
+48. Compare single file
+$ git difftool -- README.md
+49. Compare two commits(shown left and right)
+$ git difftool aa81b7d e6629e6 
+$ git difftool HEAD HEAD^	-HEAD^ means commit prior to head
+50. Compare local and remote master Branches
+$ git difftool master origin/master
+This syntax can also compare different branches.

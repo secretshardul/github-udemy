@@ -1,0 +1,46 @@
+Rebase allows easy merge conflict resolution. Rebase command rewinds
+head to the specified branch and then applies commits of current branch
+over it. The branch structure is flattened.
+Rebase vs merge
+1. Merge creates combination of commits. Rebase command rewinds
+head to the specified branch and then applies commits of current branch
+over it.
+2. Merge preserves branch history, rebase overwrites it.
+3. Merge is preferred for teams.
+4. Merge presents all conflicts at same time while rebase presents them
+one by one. Rebase is easy for conflict resolution but makes it difficult 
+for reverting.
+$ git rebase master
+Before
+* 6025912 (HEAD -> master) added to README for rebase example
+| * 4a9f1da (myfeature) chaged humans
+|/
+* 4c89990 (origin/master, origin/HEAD) 
+
+After
+* bbee0a4 (HEAD -> myfeature) chaged humans
+* 6025912 (master) added to README for rebase example       
+* 4c89990 (origin/master, origin/HEAD)
+
+Regular merge- here we had to manually resolve conflicts with mergetool
+*   22f197b (HEAD -> master) merging changes from simple-changes branch
+|\
+| * d3feb71 (simple-changes)
+
+By flattening branches it allows for fast forward merge.
+
+Fetch 
+non destructive command that updates references 
+between remote and local repo
+
+
+Rebasing with remote repository
+$ git fetch origin master
+$ git pull --rebase origin master
+Remote branch gets rebased on local branch
+
+
+
+
+
+

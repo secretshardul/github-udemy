@@ -1,0 +1,106 @@
+Git- a decentralized VC system.
+
+3 stages-
+1. working directory
+2. Staging area/git index- holding area for queuing commits. 
+3. Repository(.git folder)- manages commit history
+4. Remote repository-github
+
+
+Branches
+Timelines of changes. They contain commits. The default branch is 
+master.
+
+Setting github username and password
+$ git config --global user.name "secretshardul"
+$ git config --global user.email "shardul.aeer@somaiya.edu"
+
+To display saved:
+$ git config --global --list
+
+13. 
+cloning: $ git clone https://github.com/secretshardul/github-demo.git
+$ cd git-hub demo: (master) is displayed in bash
+$ git status : shows status of 4 stages
+
+Create file start.txt and add to repo
+$ echo "Test git demo" >>start.txt  : this is just in working directiory
+$ git add start.txt     : in staging area
+To add all files in directory "$ git add ."
+$ git commit -m "adding start.txt file"     : Commit in local repository with inline msg.
+If just "$ git commit" is used text editor will open up where commit 
+message is added
+$ git commit -am "hipster.txt modified"     : -am combines add and comit command. It's 
+possible only with tracked files(pre-existent files with modifications) not new files.
+$ git ls-files      : shows files tracked by git
+$ git status    : branch is ahead of origin/master by 1 commit
+
+
+$ git pull origin master    :pulls changes in remote repo, if any. it doesn't
+remove unpushed commits. In fact pull should be performed before push so that 
+everything remains up to date.
+
+$ git push origin master    : pushed to github.
+origin- github copy of repo
+master- default branch
+
+Modification of commited files:
+Git differentiates between modifications in working directory and in staging area.
+Every change in working directory must be sent to staging area by "$ git add hipster.txt"
+Only changes in staging area are commited.
+
+29. backing out from changes
+A.Unstage changes in staging area
+$ git reset HEAD level1-file.txt
+Modifications made to the file are unstaged. They're not deleted but come 
+back to working directory level. They must be staged again by "$ git add ....."
+
+B. discard changes in working directory
+$ git checkout -- level1-file.txt
+or
+$ git restore level1-file.txt
+restore is a new and more preferred command.
+
+30.Renaming file from git
+$ git mv level3-file.txt level3.txt
+Change is automatically made to staging area. If rename is done by bash 
+command "$ mv ...." then it remains in working directory. The bash 
+command is considered by git as if a file was deleted and new file was 
+added. It must be added to staging area. 
+"$ git add -A" and  not "$git add level2.txt" must be used for git to 
+recognize rename operation. Othwise use "$ git add -u" to update index
+so that rename is recognized.
+$ git restore --staged level2.txt   -restore old name 
+
+Moving file to different folder
+$ git mv level2.txt level3      -file moved to level3 folder
+Its preferred to "$ mv ......" command for moving
+
+31. Deletion
+$ git rm newfile.txt
+Only file tracked by git index is deleted. Otherwise $ rm command is used.
+"$ git rm" makes change in staging area.
+
+Restoring delete
+$ got restore --staged hipster.txt      -unstages delete from 
+staging area but file remains deleted from working directory. It must 
+be restored by
+$ git checkout -- hipster.txt
+
+34. Ignoring unwanted files
+.gitignore patterns
+a) Specific file: myfile.txt
+b) File pattern: *.txt
+c) Folder: myfolder/
+
+
+
+
+
+
+
+
+
+
+
+

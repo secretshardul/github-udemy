@@ -1,0 +1,13 @@
+pwd- current directory
+ls- list contents of current directory
+ls -a   : all contents including .git
+code hispter.txt - opens file in VScode
+cd ..   - go back 1 level
+$ rm -r fresh-project  -remove directory
+$ unzip F:/Downloads/initializr-verekia-4.0.zip     -unzip file
+$ unzip ~/Downloads/initializr-verekia-4.0.zip     -if present in same root
+$ mv initializr web-project     -rename as initializr as web-project
+$ mkdir -p mydirectory      - creates directory. -p means create even if parent
+doesn't exist(for hierarchical)
+$ mv    - renaming or moving to another folder
+$ rm    - remove(delete) file
